@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { NewCategoryComponent } from './new-category/new-category.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
+  @ViewChild('newCategoryModal') newCategoryModal: NewCategoryComponent;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  newCategory() {
+    this.newCategoryModal.show();
+  }
 }

@@ -3,14 +3,102 @@
     <div class="col-sm-4 col-xl-6">
       <h4 class="mb-1 mt-0">Categories</h4>
     </div>
+    <!-- Button Start -->
+    <div class="col-sm-8 col-xl-6">
+      <form class="form-inline float-sm-right mt-3 mt-sm-0">
+        <div class="form-group mb-sm-0 mr-2">
+          <div class="btn">
+            <button type="button" class="btn btn-primary" (click)="newCategory()">
+              <i class="uil uil-plus-circle mr-1"></i>New Category
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
+  <!-- Button End -->
+
+  <!-- <div class="col text-right">
+    <div class="btn-group mb-1">
+      <div class="btn-group btn-group-toggle">
+        <div ngbDropdown class="btn-group">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+            ngbDropdownToggle
+            aria-expanded="false"
+          >
+            <i class="uil-plus-circle"></i>
+            New Category
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
   <div class="row">
-    <div class="col-xl-3">
+    <div class="col-xl-4">
       <div class="card">
-        <div class="card-body pt-2">
+        <div class="card-body pt-8">
           <h2>C#</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body pt-8">
+          <h2>HTML</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body pt-8">
+          <h2>JavaScript</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body pt-8">
+          <h2>Angular</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body pt-8">
+          <h2>WordPress</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card">
+        <div class="card-body pt-8">
+          <h2>ASP.NET</h2>
+          <a href="#" class="topics">Topics (30) </a>
+
+          <a href="#" class="snippets">Snippets (45)</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-new-category #newCategoryModal></app-new-category>
