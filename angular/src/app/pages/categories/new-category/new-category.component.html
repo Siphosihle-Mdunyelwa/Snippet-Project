@@ -9,8 +9,8 @@
         <div class="col-12">
           <div class="form-group">
             <label class="control-label">Category Name</label>
-            <input class="form-control" placeholder="Insert Event Name" type="text" name="name" formControlName="name"
-              [ngClass]="{'is-invalid': submitted && newCategoryForm.name.errors}" required>
+            <input class="form-control" placeholder="Insert Category Name" type="text" name="name"
+              formControlName="name" [ngClass]="{'is-invalid': submitted && newCategoryForm.name.errors}" required>
             <div *ngIf="submitted && newCategoryForm.name.errors" class="invalid-feedback">
               <span *ngIf="newCategoryForm.name.errors.required">This value is required.</span>
             </div>

@@ -7,8 +7,8 @@
       <form class="form-inline float-sm-right mt-3 mt-sm-0">
         <div class="form-group mb-sm-0 mr-2">
           <div class="btn">
-            <button type="button" class="btn btn-primary">
-              <i class="uil uil-plus-circle mr-1"></i>Add Snippet
+            <button type="button" class="btn btn-primary" (click)="newSnippet()">
+              <i class="uil uil-file-plus-alt mr-1"></i>Add Snippet
             </button>
           </div>
         </div>
@@ -16,3 +16,5 @@
     </div>
   </div>
 </div>
+
+<app-new-snippet #newSnippetModal></app-new-snippet>

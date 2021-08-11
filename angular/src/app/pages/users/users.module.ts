@@ -1,3 +1,4 @@
+import { NewUserComponent } from './new-user/new-user.component';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,8 @@ import { UIModule } from '@app/shared/ui/ui.module';
 
 @NgModule({
   declarations: [
-    UsersComponent
+    UsersComponent,
+    NewUserComponent
   ],
   imports: [
     CommonModule,

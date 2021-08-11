@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { NewSnippetComponent } from './new-snippet/new-snippet.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-snippet',
@@ -7,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnippetComponent implements OnInit {
 
+  @ViewChild('newSnippetModal') newSnippetModal: NewSnippetComponent;
+
   constructor() { }
 
   ngOnInit(): void {
 
 
+  }
+
+  newSnippet() {
+    this.newSnippetModal.show();
   }
 
 }

@@ -1,11 +1,12 @@
+import { NewUserComponent } from './new-user/new-user.component';
 import { DecimalPipe } from '@angular/common';
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AdvancedSortableDirective, SortEvent } from '../ui/tables/advanced/advanced-sortable.directive';
 import { Table } from '../ui/tables/advanced/advanced.model';
 import { AdvancedService } from '../ui/tables/advanced/advanced.service';
 
-import { tableData } from './data';
+import { tableData, roles } from './data';
 
 @Component({
   selector: 'app-users',
@@ -14,6 +15,8 @@ import { tableData } from './data';
   providers: [AdvancedService, DecimalPipe]
 })
 export class UsersComponent implements OnInit {
+
+  @ViewChild('newUserModal') newUserModal: NewUserComponent;
 
   breadCrumbItems: Array<{}>;
 
@@ -52,6 +55,10 @@ export class UsersComponent implements OnInit {
     });
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
+  }
+
+  newUser() {
+    this.newUserModal.show();
   }
 
 }
