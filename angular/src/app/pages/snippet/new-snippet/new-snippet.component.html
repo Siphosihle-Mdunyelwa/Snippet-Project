@@ -1,4 +1,4 @@
-<ng-template #newSnippet let-modal>
+<!-- <ng-template #newSnippet let-modal>
   <div class="modal-header">
     <h5 class="modal-title">New Snippet</h5>
     <button type="button" class="close" aria-hidden="true" (click)="modal.dismiss('Cross click')">×</button>
@@ -10,8 +10,8 @@
           <div class="form-group">
             <label class="control-label">Name of Snippet</label>
             <input class="form-control" placeholder="Enter Name of Snippet" type="text" name="name"
-              formControlName="name" [ngClass]="{'is-invalid': submitted && newSnippetForm.name.errors}" required>
-            <div *ngIf="submitted && newSnippetForm.name.errors" class="invalid-feedback">
+              formControlName="name" [ngClass]="{'is-invalid':  newSnippetForm.name.errors}" required>
+            <div *ngIf=" newSnippetForm.name.errors" class="invalid-feedback">
               <span *ngIf="newSnippetForm.name.errors.required">This value is required.</span>
             </div>
           </div>
@@ -20,9 +20,9 @@
           <div class="form-group">
             <label class="control-label">Description</label>
             <textarea class="form-control" placeholder="Description of Snippet" type="text" name="description"
-              formControlName="description" [ngClass]="{'is-invalid': submitted && newSnippetForm.description.errors}"
+              formControlName="description" [ngClass]="{'is-invalid':  newSnippetForm.description.errors}"
               rows="2" required></textarea>
-            <div *ngIf="submitted && newSnippetForm.description.errors" class="invalid-feedback">
+            <div *ngIf=" newSnippetForm.description.errors" class="invalid-feedback">
               <span *ngIf="newSnippetForm.description.errors.required">This value is required.</span>
             </div>
           </div>
@@ -32,10 +32,10 @@
           <div class="form-group">
             <label class="control-label">Category</label>
             <select class="form-control" name="roles" formControlName="roles"
-              [ngClass]="{'is-invalid': submitted && newUserForm.roles.errors}" required>
+              [ngClass]="{'is-invalid':  newUserForm.roles.errors}" required>
               <option *ngFor="let option of roles" value="{{option.value}}"> {{ option.name }}</option>
             </select>
-            <div *ngIf="submitted && newUserForm.roles.errors" class="invalid-feedback">
+            <div *ngIf=" newUserForm.roles.errors" class="invalid-feedback">
               <div *ngIf="newUserForm.roles.errors.required">This value is required</div>
             </div>
           </div>
@@ -44,14 +44,27 @@
           <div class="form-group">
             <label class="control-label">Code Snippet</label>
             <textarea class="form-control" placeholder="Example code" type="text" name="description"
-              formControlName="description" [ngClass]="{'is-invalid': submitted && newSnippetForm.description.errors}"
+              formControlName="description" [ngClass]="{'is-invalid':  newSnippetForm.description.errors}"
               rows="6" required>
             </textarea>
-            <div *ngIf="submitted && newSnippetForm.description.errors" class="invalid-feedback">
+            <div *ngIf=" newSnippetForm.description.errors" class="invalid-feedback">
               <span *ngIf="newSnippetForm.description.errors.required">This value is required.</span>
             </div>
           </div>
         </div>
+
+        <div class="col-12">
+          <pre>
+          <code [highlight]="code" [lineNumbers]="true" (highlighted)="onHighlight($event)"></code>
+        </pre>
+          <div class="float-right">
+            <div class="btn btn-primary btn-round">
+              +
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="text-right pt-4">
@@ -60,4 +73,78 @@
       </div>
     </form>
   </div>
-</ng-template>
+</ng-template> -->
+
+
+
+<div class="container-fluid">
+  <div class="row page-title align-items-center">
+    <form (ngSubmit)="save()" [formGroup]="newSnippetForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="control-label">Name of Snippet</label>
+            <input class="form-control" placeholder="Enter Name of Snippet" type="text" name="name"
+              formControlName="name" [ngClass]="{'is-invalid':  form.name.errors}" required>
+            <div *ngIf="form.name.errors" class="invalid-feedback">
+              <span *ngIf="form.name.errors.required">This value is required.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label class="control-label">Description</label>
+            <textarea class="form-control" placeholder="Description of Snippet" type="text" name="description"
+              formControlName="description" [ngClass]="{'is-invalid': form.description.errors}" rows="2"
+              required></textarea>
+            <div *ngIf="form.description.errors" class="invalid-feedback">
+              <span *ngIf="form.description.errors.required">This value is required.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group">
+            <label class="control-label">Category</label>
+            <!-- <select class="form-control" name="roles" formControlName="roles"
+              [ngClass]="{'is-invalid':  newUserForm.roles.errors}" required>
+              <option *ngFor="let option of roles" value="{{option.value}}"> {{ option.name }}</option>
+            </select>
+            <div *ngIf=" newUserForm.roles.errors" class="invalid-feedback">
+              <div *ngIf="newUserForm.roles.errors.required">This value is required</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label class="control-label">Code Snippet</label>
+            <textarea class="form-control" placeholder="Example code" type="text" name="description"
+              formControlName="description" [ngClass]="{'is-invalid':  form.description.errors}" rows="6" required>
+            </textarea>
+            <div *ngIf="form.description.errors" class="invalid-feedback">
+              <span *ngIf="form.description.errors.required">This value is required.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <pre>
+          <code [highlight]="code" [lineNumbers]="true" (highlighted)="onHighlight($event)"></code>
+        </pre>
+          <div class="float-right">
+            <div class="btn btn-primary btn-round">
+              +
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="text-right pt-4">
+        <!-- <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">Close</button> -->
+        <button type="submit" class="btn btn-success save-event ml-1">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

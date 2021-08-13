@@ -2,6 +2,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponentBase } from '@shared/app-component-base';
 import { Component, OnInit, ViewChild, ElementRef, Injector } from '@angular/core';
+import { HighlightResult } from 'ngx-highlightjs';
 
 @Component({
   selector: 'app-new-snippet',
@@ -12,6 +13,12 @@ export class NewSnippetComponent extends AppComponentBase implements OnInit {
 
   @ViewChild('newSnippet') newSnippet: ElementRef;
   newSnippetForm: FormGroup;
+  response: HighlightResult;
+  code = `function myFunction() {
+    document.getElementById("demo1").innerHTML = "Test 1!";
+    document.getElementById("demo2").innerHTML = "Test 2!";
+  }`;
+
 
   constructor(
     Injector: Injector,
@@ -24,6 +31,7 @@ export class NewSnippetComponent extends AppComponentBase implements OnInit {
     this.InitializeForm();
   }
 
+
   InitializeForm() {
     this.newSnippetForm = this.fb.group({
       name: ['', Validators.required],
@@ -31,6 +39,20 @@ export class NewSnippetComponent extends AppComponentBase implements OnInit {
       category: ['', Validators.required],
       code: ['', Validators.required]
     })
+  }
+
+  onHighlight(e: any) {
+    this.response = {
+      language: e.language,
+      relevance: e.relevance,
+      second_best: '{...}',
+      top: '{...}',
+      value: '{...}'
+    }
+  }
+
+  get form() {
+    return this.newSnippetForm.controls;
   }
 
   show() {

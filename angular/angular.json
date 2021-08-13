@@ -41,8 +41,9 @@
               "src/assets/scss/bootstrap.scss",
               "src/assets/scss/app.scss",
               "src/assets/scss/icons.scss",
+              "src/assets/freeze-ui/freeze-ui.css",
               "./node_modules/sweetalert2/dist/sweetalert2.css",
-              "src/assets/freeze-ui/freeze-ui.css"
+              "./node_modules/highlight.js/styles/androidstudio.css"
             ],
             "scripts": [
               "./node_modules/apexcharts/dist/apexcharts.min.js",

@@ -55,33 +55,26 @@
             <thead>
               <tr>
                 <th sortable="name" (sort)="onSort($event)">Name</th>
-                <th sortable="position" (sort)="onSort($event)">Position</th>
-                <th sortable="office" (sort)="onSort($event)">Office</th>
-                <th sortable="age" (sort)="onSort($event)">Age</th>
-                <th sortable="date" (sort)="onSort($event)">Start date</th>
-                <th sortable="salary" (sort)="onSort($event)">Salary</th>
+                <th sortable="position" (sort)="onSort($event)">Email</th>
+                <th sortable="office" (sort)="onSort($event)">Role</th>
+                <th sortable="age" (sort)="onSort($event)">Date Added</th>
+                <th sortable="date" (sort)="onSort($event)">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr tr *ngFor="let table of tables$ | async">
+              <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>User</td>
+                <td>08/12/2021</td>
                 <td>
-                  <ngb-highlight [result]="table.name" [term]="service.searchTerm"></ngb-highlight>
+
+
+                  <div (click)="editUser()">
+                    <i class="uil uil-edit-alt mr-1"></i>
+                  </div>
                 </td>
-                <td>
-                  <ngb-highlight [result]="table.position" [term]="service.searchTerm"></ngb-highlight>
-                </td>
-                <td>
-                  <ngb-highlight [result]="table.office" [term]="service.searchTerm"></ngb-highlight>
-                </td>
-                <td>
-                  <ngb-highlight [result]="table.age" [term]="service.searchTerm"></ngb-highlight>
-                </td>
-                <td>
-                  <ngb-highlight [result]="table.date" [term]="service.searchTerm"></ngb-highlight>
-                </td>
-                <td>
-                  <ngb-highlight [result]="table.salary" [term]="service.searchTerm"></ngb-highlight>
-                </td>
+
               </tr>
             </tbody>
           </table>
@@ -111,3 +104,4 @@
 </div>
 
 <app-new-user #newUserModal></app-new-user>
+<app-edit-user #editUserModal></app-edit-user>

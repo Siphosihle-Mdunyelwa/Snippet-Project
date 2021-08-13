@@ -7,6 +7,8 @@ import { Table } from '../ui/tables/advanced/advanced.model';
 import { AdvancedService } from '../ui/tables/advanced/advanced.service';
 
 import { tableData, roles } from './data';
+import { EditUserComponent } from './edit-user/edit-user.component';
+
 
 @Component({
   selector: 'app-users',
@@ -17,6 +19,7 @@ import { tableData, roles } from './data';
 export class UsersComponent implements OnInit {
 
   @ViewChild('newUserModal') newUserModal: NewUserComponent;
+  @ViewChild('editUserModal') editUserModal: EditUserComponent;
 
   breadCrumbItems: Array<{}>;
 
@@ -59,6 +62,10 @@ export class UsersComponent implements OnInit {
 
   newUser() {
     this.newUserModal.show();
+  }
+
+  editUser() {
+    this.editUserModal.show();
   }
 
 }

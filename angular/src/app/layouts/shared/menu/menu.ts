@@ -28,5 +28,11 @@ export const MENU: MenuItem[] = [
     label: 'Users',
     icon: 'users',
     link: '/users',
-  }
+  },
+
+  // {
+  //   label: 'Add Snippet',
+  //   icon: 'pen-tool',
+  //   link: '/snippet',
+  // }
 ];

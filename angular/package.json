@@ -45,6 +45,7 @@
     "ngx-color-picker": "^8.2.0",
     "ngx-drag-drop": "^2.0.0",
     "ngx-dropzone-wrapper": "^8.0.0",
+    "ngx-highlightjs": "^4.1.4",
     "ngx-mask": "^8.0.6",
     "ngx-pagination": "^5.1.1",
     "push.js": "1.0.12",

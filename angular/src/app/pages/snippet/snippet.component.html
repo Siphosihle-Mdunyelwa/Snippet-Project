@@ -14,7 +14,76 @@
         </div>
       </form>
     </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-lg-2 col-form-label">Name of Snippet</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" value="Random Values" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 col-form-label">Description</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="3"
+                      disabled>C# Random class provides functionality to generate random numbers in C#. The following code returns a random number between the min and the max range.</textarea>
+                  </div>
+                </div>
+                <label class="col-lg-2 col-form-label">Code Snippet</label>
+                <div class="col-10">
+                  <pre>
+                    <code [highlight]="code" [lineNumbers]="true" (highlighted)="onHighlight($event)"></code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-lg-2 col-form-label">Name of Snippet</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" value="Return the largest numbers in arrays in JavaScript"
+                      disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 col-form-label">Description</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="3"
+                      disabled>Our input here is an array of arrays. Our output is an array. Ultimately, we need to pluck the largest number from each group of numbers given to us and return those largest numbers in an array.</textarea>
+                  </div>
+                </div>
+                <label class="col-lg-2 col-form-label">Code Snippet</label>
+                <div class="col-10">
+                  <pre>
+                    <code [highlight]="code1" [lineNumbers]="true" (highlighted)="onHighlight($event)"></code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<app-new-snippet #newSnippetModal></app-new-snippet>
+<!-- <app-new-snippet #newSnippetModal></app-new-snippet> -->
