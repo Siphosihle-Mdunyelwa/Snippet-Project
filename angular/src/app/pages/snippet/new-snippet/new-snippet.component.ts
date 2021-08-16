@@ -1,3 +1,5 @@
+import { SnippetModalComponent } from './snippet-modal/snippet-modal.component';
+
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponentBase } from '@shared/app-component-base';
@@ -11,13 +13,16 @@ import { HighlightResult } from 'ngx-highlightjs';
 })
 export class NewSnippetComponent extends AppComponentBase implements OnInit {
 
-  @ViewChild('newSnippet') newSnippet: ElementRef;
+  // @ViewChild('newSnippet') newSnippet: ElementRef;
   newSnippetForm: FormGroup;
   response: HighlightResult;
   code = `function myFunction() {
     document.getElementById("demo1").innerHTML = "Test 1!";
     document.getElementById("demo2").innerHTML = "Test 2!";
   }`;
+
+  @ViewChild('newSnippetModal') newSnippetModal: SnippetModalComponent;
+
 
 
   constructor(
@@ -55,12 +60,18 @@ export class NewSnippetComponent extends AppComponentBase implements OnInit {
     return this.newSnippetForm.controls;
   }
 
-  show() {
-    this.modalService.open(this.newSnippet, { size: 'lg' })
-  }
+  // show() {
+  //   this.modalService.open(this.newSnippet, { size: 'lg' })
+  // }
+
+
 
   save() {
     this.notify.success('Created new Snippet');
+  }
+
+  newSnippet() {
+    this.newSnippetModal.show();
   }
 
 }

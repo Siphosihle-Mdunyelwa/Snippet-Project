@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'topics', loadChildren: () => import('./topics/topics.module').then(m => m.TopicsModule) },
   { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
-  { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
+
   { path: 'snippet', loadChildren: () => import('./snippets/snippets.module').then(m => m.SnippetsModule) },
   { path: 'ui', loadChildren: () => import('./ui/ui.module').then(m => m.UiModule) },
   { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },

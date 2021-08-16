@@ -46,6 +46,10 @@ export class SnippetComponent implements OnInit {
     // this.newSnippetModal.show();
   }
 
+  loadCard() {
+    this.router.navigate(['/snippets/all-snippets/'])
+  }
+
   onHighlight(e: any) {
     this.response = {
       language: e.language,

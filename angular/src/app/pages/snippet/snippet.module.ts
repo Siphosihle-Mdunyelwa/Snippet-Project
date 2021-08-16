@@ -1,3 +1,5 @@
+import { SnippetModalComponent } from './new-snippet/snippet-modal/snippet-modal.component';
+import { AllSnippetsComponent } from './all-snippets/all-snippets.component';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { NewSnippetComponent } from './new-snippet/new-snippet.component';
 import { NgModule } from '@angular/core';
@@ -14,7 +16,9 @@ import 'highlightjs-line-numbers.js';
 @NgModule({
   declarations: [
     SnippetComponent,
-    NewSnippetComponent
+    NewSnippetComponent,
+    AllSnippetsComponent,
+    SnippetModalComponent
   ],
   imports: [
     CommonModule,

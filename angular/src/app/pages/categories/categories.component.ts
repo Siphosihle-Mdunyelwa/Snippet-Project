@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,9 +11,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class CategoriesComponent implements OnInit {
 
   @ViewChild('newCategoryModal') newCategoryModal: NewCategoryComponent;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  loadSnippets() {
+    this.router.navigate(['categories/category-snippets/'])
   }
 
   newCategory() {
