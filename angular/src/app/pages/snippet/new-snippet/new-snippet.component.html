@@ -75,8 +75,6 @@
   </div>
 </ng-template> -->
 
-
-
 <div class="container-fluid">
   <div class="row page-title align-items">
     <div class="col-sm-4 col-xl-6">
@@ -93,19 +91,40 @@
                 <div class="col">
                   <div class="form-group">
                     <label class="control-label">Name of Snippet</label>
-                    <input class="form-control" placeholder="Enter Name of Snippet" type="text" name="name"
-                      formControlName="name" [ngClass]="{'is-invalid':  form.name.errors}" required>
+                    <input
+                      class="form-control"
+                      placeholder="Enter Name of Snippet"
+                      type="text"
+                      name="name"
+                      formControlName="name"
+                      [ngClass]="{ 'is-invalid': form.name.errors }"
+                      required
+                    />
                     <div *ngIf="form.name.errors" class="invalid-feedback">
-                      <span *ngIf="form.name.errors.required">This value is required.</span>
+                      <span *ngIf="form.name.errors.required"
+                        >This value is required.</span
+                      >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label">Description</label>
-                    <textarea class="form-control" placeholder="Description of Snippet" type="text" name="description"
-                      formControlName="description" [ngClass]="{'is-invalid': form.description.errors}" rows="2"
-                      required></textarea>
-                    <div *ngIf="form.description.errors" class="invalid-feedback">
-                      <span *ngIf="form.description.errors.required">This value is required.</span>
+                    <textarea
+                      class="form-control"
+                      placeholder="Description of Snippet"
+                      type="text"
+                      name="description"
+                      formControlName="description"
+                      [ngClass]="{ 'is-invalid': form.description.errors }"
+                      rows="2"
+                      required
+                    ></textarea>
+                    <div
+                      *ngIf="form.description.errors"
+                      class="invalid-feedback"
+                    >
+                      <span *ngIf="form.description.errors.required"
+                        >This value is required.</span
+                      >
                     </div>
                   </div>
                   <div class="form-group">
@@ -120,52 +139,56 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Code Snippet</label>
-                    <textarea class="form-control" placeholder="Example code" type="text" name="code"
-                      formControlName="code" [ngClass]="{'is-invalid':  form.code.errors}" rows="6" required>
-                      </textarea>
+                    <textarea
+                      class="form-control"
+                      placeholder="Example code"
+                      type="text"
+                      name="code"
+                      formControlName="code"
+                      [ngClass]="{ 'is-invalid': form.code.errors }"
+                      rows="6"
+                      required
+                    >
+                    </textarea>
                     <div *ngIf="form.code.errors" class="invalid-feedback">
-                      <span *ngIf="form.code.errors.required">This value is required.</span>
+                      <span *ngIf="form.code.errors.required"
+                        >This value is required.</span
+                      >
                     </div>
                   </div>
                   <pre>
                     <code [highlight]="code" [lineNumbers]="true" (highlighted)="onHighlight($event)"></code>
                   </pre>
                   <div class="float-right">
-                    <div class="btn btn-primary btn-round" (click)="newSnippet()">
-                      +
+                    <div class="btn">
+                      <button type="button" class="btn btn-primary btn-round" (click)="newSnippet()"><i class="uil uil-plus"></i></button>
                     </div>
+                    <!-- <div class="btn btn-primary btn-round"
+                      >
+                      +
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-      <div class="col-12">
+      <div class="col-12"></div>
 
-      </div>
+      <div class="col-12"></div>
+      <div class="col-12"></div>
 
-      <div class="col-12">
-
-      </div>
-      <div class="col-12">
-
-      </div>
-
-      <div class="col-12">
-
-
-      </div>
-
+      <div class="col-12"></div>
     </div>
 
     <div class="text-right pt-4">
       <!-- <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">Close</button> -->
-      <button type="submit" class="btn btn-success save-event ml-1">Save</button>
+      <button type="submit" class="btn btn-success save-event ml-1">
+        Save
+      </button>
     </div>
   </form>
-
 </div>
 
 <app-snippet-modal #newSnippetModal></app-snippet-modal>

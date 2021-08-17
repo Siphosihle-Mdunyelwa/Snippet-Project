@@ -32,7 +32,7 @@ export class SnippetModalComponent extends AppComponentBase implements OnInit {
   }
 
   show() {
-    this.modalService.open(this.newSnippet, { size: 'md' })
+    this.modalService.open(this.newSnippet)
   }
 
   save() {

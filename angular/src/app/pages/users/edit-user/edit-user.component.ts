@@ -37,7 +37,7 @@ export class EditUserComponent extends AppComponentBase implements OnInit {
   }
 
   show() {
-    this.modalService.open(this.editUser, { size: 'md' })
+    this.modalService.open(this.editUser)
   }
 
   save() {

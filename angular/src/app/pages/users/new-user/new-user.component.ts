@@ -38,7 +38,7 @@ export class NewUserComponent extends AppComponentBase implements OnInit {
   }
 
   show() {
-    this.modalService.open(this.newUser, { size: 'md' })
+    this.modalService.open(this.newUser)
   }
 
   save() {

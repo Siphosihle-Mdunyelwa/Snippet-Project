@@ -10,6 +10,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
+
   @ViewChild('newCategoryModal') newCategoryModal: NewCategoryComponent;
   constructor(private router: Router) { }
 
