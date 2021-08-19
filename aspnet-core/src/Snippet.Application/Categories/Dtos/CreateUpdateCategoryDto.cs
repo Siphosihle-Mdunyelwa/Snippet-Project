@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Snippet.Categories.Dtos
 {
-    [AutoMapFrom(typeof(Category))]
+    [AutoMapTo(typeof(Category))]
     public class CreateUpdateCategoryDto
     {
         //[ForeignKey(nameof(Category))]
-        public string Category_Type { get; set; }
+        public string CategoryType { get; set; }
     }
 }

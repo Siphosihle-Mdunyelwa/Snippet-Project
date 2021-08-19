@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,20 @@ namespace Snippet.Categories.Dtos
             await _categoryManager.DeleteAsync(id);
         }
 
-        public async Task<ListResultDto<ListCategoryDto>> GetAllAsync()
+        public async Task<ListResultDto<CategoryDto>> GetAllAsync()
         {
-            var c = await _repositoryCategory.GetAllListAsync();
-            return new ListResultDto<ListCategoryDto>(ObjectMapper.Map<List<ListCategoryDto>>(c));
+            List<Category> categories = null;
+            using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant))
+            {
+                categories = await _repositoryCategory.GetAllListAsync();
+            }
+
+            return new ListResultDto<CategoryDto>(ObjectMapper.Map<List<CategoryDto>>(categories));
         }
 
         public async Task<ListCategoryDto> GetAsync(Guid id)
         {
+
             var categoryFromDb = await _repositoryCategory.GetAsync(id);
             return ObjectMapper.Map<ListCategoryDto>(categoryFromDb);
         }

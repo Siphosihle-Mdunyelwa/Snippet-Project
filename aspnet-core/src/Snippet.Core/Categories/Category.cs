@@ -13,6 +13,6 @@ namespace Snippet.Categories
     public class Category : FullAuditedEntity<Guid>
     {
         [Required]
-        public string Category_Type { get; set; }
+        public string CategoryType { get; set; }
     }
 }

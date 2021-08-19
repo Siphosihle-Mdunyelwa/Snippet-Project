@@ -9,6 +9,6 @@ namespace Snippet.Categories.Dtos
 {
     public class DeleteCategoryDto : EntityDto<Guid>
     {
-        public string Category_Type { get; set; }
+        public string CategoryType { get; set; }
     }
 }

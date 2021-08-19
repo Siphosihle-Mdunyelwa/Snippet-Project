@@ -11,7 +11,7 @@ namespace Snippet.Categories.Dtos
     [AutoMapFrom(typeof(Category))]
     public class CategoryDto : EntityDto<Guid>
     {
-        public string Category_Type { get; set; }
+        public string CategoryType { get; set; }
         
     }
 }

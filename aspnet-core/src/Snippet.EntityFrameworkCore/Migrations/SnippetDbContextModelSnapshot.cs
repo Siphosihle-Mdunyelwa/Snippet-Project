@@ -1533,7 +1533,7 @@ namespace Snippet.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Category_Type")
+                    b.Property<string>("CategoryType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1608,7 +1608,7 @@ namespace Snippet.Migrations
                     b.Property<Guid?>("TopicId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("UserId")
+                    b.Property<long?>("UserId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -1722,7 +1722,7 @@ namespace Snippet.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("UserId")
+                    b.Property<long?>("UserId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -1964,9 +1964,7 @@ namespace Snippet.Migrations
 
                     b.HasOne("Snippet.Authorization.Users.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
 
@@ -2012,9 +2010,7 @@ namespace Snippet.Migrations
 
                     b.HasOne("Snippet.Authorization.Users.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
 

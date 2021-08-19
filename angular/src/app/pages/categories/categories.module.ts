@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewCategoryComponent } from './new-category/new-category.component';
@@ -10,6 +11,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import * as hljs from 'highlight.js';
 document.defaultView['hljs'] = hljs;
 import 'highlightjs-line-numbers.js';
+import { CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import 'highlightjs-line-numbers.js';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     CategoriesRoutingModule,
     HighlightModule
   ],
@@ -32,7 +35,8 @@ import 'highlightjs-line-numbers.js';
         // The following is just a workaround to activate the line numbers script since dynamic import does not work in Stackblitz
         lineNumbersLoader: () => null
       }
-    }
+    },
+    CategoryServiceProxy
   ],
   entryComponents: [NewCategoryComponent]
 })

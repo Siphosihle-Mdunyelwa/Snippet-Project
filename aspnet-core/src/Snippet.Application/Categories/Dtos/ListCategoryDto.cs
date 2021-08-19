@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Snippet.Categories.Dtos
 {
-    [AutoMapTo(typeof(Category))]
+    [AutoMapFrom(typeof(Category))]
     public class ListCategoryDto
     {
-        public string Category_Type { get; set; }
+        public string CategoryType { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Snippet.Categories.Dtos
     {
         Task<CreateUpdateCategoryDto> CreateAsync(CreateUpdateCategoryDto categoryDto);
         Task<ListCategoryDto> GetAsync(Guid categoryId);
-        Task<ListResultDto<ListCategoryDto>> GetAllAsync();
+        Task<ListResultDto<CategoryDto>> GetAllAsync();
         Task<CreateUpdateCategoryDto> UpdateAsync(CategoryDto categoryDto);
         Task DeleteAsync(Guid categoryId);
     }
