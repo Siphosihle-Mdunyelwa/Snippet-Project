@@ -1,3 +1,4 @@
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { HttpClient } from '@angular/common/http';
 import { CategoryDto, CategoryServiceProxy, ListCategoryDto } from '@shared/service-proxies/service-proxies';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ import { tap } from 'rxjs/operators';
 })
 export class CategoriesComponent implements OnInit {
   @ViewChild('newCategoryModal') newCategoryModal: NewCategoryComponent;
+  @ViewChild('editCategoryModal') editCategoryModal: EditCategoryComponent;
 
   categories: CategoryDto[] = [];
 
@@ -42,5 +44,9 @@ export class CategoriesComponent implements OnInit {
 
   newCategory() {
     this.newCategoryModal.show();
+  }
+
+  editCategory(category: CategoryDto) {
+    this.editCategoryModal.show(category);
   }
 }

@@ -13,6 +13,10 @@ export class CategorySnippetsComponent implements OnInit {
   ngOnInit() {
   }
 
+  Back() {
+    this.router.navigate(['/categories/'])
+  }
+
   loadValues() {
     this.router.navigate(['categories/category-details/'])
   }

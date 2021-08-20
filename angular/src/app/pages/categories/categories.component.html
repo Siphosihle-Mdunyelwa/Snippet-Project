@@ -38,14 +38,38 @@
   </div> -->
 
   <div class="row">
+
     <div class="col-xl-4" *ngFor="let cat of categories">
       <div class="card" style="height: 7rem;" (click)="loadSnippets()">
         <div class="card-body pt-8">
+          <div class="dropdown mt-2 float-right" ngbDropdown (click)="$event.stopPropagation();">
+            <a href="javascript: void(0);" class="dropdown-toggle arrow-none text-muted" ngbDropdownToggle>
+              <i class="uil uil-ellipsis-v"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+              <!-- item -->
+              <a href="javascript: void(0);" class="dropdown-item" (click)="editCategory(cat)"><i
+                  class="uil uil-edit-alt mr-2"></i>Edit</a>
+
+              <div class="dropdown-divider"></div>
+
+              <!-- item -->
+              <a href="javascript: void(0);" class="dropdown-item text-danger"><i
+                  class="uil uil-trash mr-2"></i>Delete</a>
+            </div>
+          </div>
+
+
           <h5>{{cat?.categoryType}}</h5>
+          <!-- <button type="button" class="btn btn-warning" (click)="$event.stopPropagation();editCategory(cat)">
+            <i class="uil uil-plus-circle mr-1"></i>Edit
+          </button> -->
+
           <!-- <a href="#" class="topics">Topics (30) </a>
 
-          <a href="#" class="snippets">Snippets (45)</a> -->
+            <a href="#" class="snippets">Snippets (45)</a> -->
         </div>
+
       </div>
     </div>
 
@@ -53,3 +77,4 @@
 </div>
 
 <app-new-category #newCategoryModal></app-new-category>
+<app-edit-category #editCategoryModal></app-edit-category>

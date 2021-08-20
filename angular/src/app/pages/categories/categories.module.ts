@@ -1,3 +1,5 @@
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,11 +15,13 @@ document.defaultView['hljs'] = hljs;
 import 'highlightjs-line-numbers.js';
 import { CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
 
+
 @NgModule({
   declarations: [
     CategoriesComponent,
     NewCategoryComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,8 @@ import { CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
     ReactiveFormsModule,
     HttpClientModule,
     CategoriesRoutingModule,
-    HighlightModule
+    HighlightModule,
+    NgbDropdownModule
   ],
   providers: [
     {
@@ -38,6 +43,6 @@ import { CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
     },
     CategoryServiceProxy
   ],
-  entryComponents: [NewCategoryComponent]
+  entryComponents: [NewCategoryComponent, EditCategoryComponent]
 })
 export class CategoriesModule { }
