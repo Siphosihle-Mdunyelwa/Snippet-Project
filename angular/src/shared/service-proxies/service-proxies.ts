@@ -3915,6 +3915,61 @@ export interface IGetCurrentLoginInformationsOutput {
     tenant: TenantLoginInfoDto;
 }
 
+export class CreateSnippetInput implements ICreateSnippetInput {
+    name: string | undefined;
+    description: string | undefined;
+    code: string | undefined;
+    categoryId: string | undefined;
+
+    constructor(data?: ICreateSnippetInput) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.description = _data["description"];
+            this.code = _data["code"];
+            this.categoryId = _data["categoryId"];
+        }
+    }
+
+    static fromJS(data: any): CreateSnippetInput {
+        data = typeof data === 'object' ? data : {};
+        let result = new CreateSnippetInput();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["description"] = this.description;
+        data["code"] = this.code;
+        data["categoryId"] = this.categoryId;
+        return data; 
+    }
+
+    clone(): CreateSnippetInput {
+        const json = this.toJSON();
+        let result = new CreateSnippetInput();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICreateSnippetInput {
+    name: string | undefined;
+    description: string | undefined;
+    code: string | undefined;
+    categoryId: string | undefined;
+}
+
 export class TopicDto implements ITopicDto {
     description: string | undefined;
     title: string | undefined;
@@ -3968,61 +4023,6 @@ export interface ITopicDto {
     title: string | undefined;
     category: CreateUpdateCategoryDto;
     id: string;
-}
-
-export class CreateSnippetInput implements ICreateSnippetInput {
-    description: string | undefined;
-    code: string | undefined;
-    category: CategoryDto;
-    topic: TopicDto;
-
-    constructor(data?: ICreateSnippetInput) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.description = _data["description"];
-            this.code = _data["code"];
-            this.category = _data["category"] ? CategoryDto.fromJS(_data["category"]) : <any>undefined;
-            this.topic = _data["topic"] ? TopicDto.fromJS(_data["topic"]) : <any>undefined;
-        }
-    }
-
-    static fromJS(data: any): CreateSnippetInput {
-        data = typeof data === 'object' ? data : {};
-        let result = new CreateSnippetInput();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["description"] = this.description;
-        data["code"] = this.code;
-        data["category"] = this.category ? this.category.toJSON() : <any>undefined;
-        data["topic"] = this.topic ? this.topic.toJSON() : <any>undefined;
-        return data; 
-    }
-
-    clone(): CreateSnippetInput {
-        const json = this.toJSON();
-        let result = new CreateSnippetInput();
-        result.init(json);
-        return result;
-    }
-}
-
-export interface ICreateSnippetInput {
-    description: string | undefined;
-    code: string | undefined;
-    category: CategoryDto;
-    topic: TopicDto;
 }
 
 export class SnippetListDto implements ISnippetListDto {

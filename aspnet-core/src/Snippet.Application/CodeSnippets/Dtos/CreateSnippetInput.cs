@@ -14,9 +14,10 @@ namespace Snippet.CodeSnippets.Dtos
     [AutoMapFrom(typeof(CodeSnippet))]
     public class CreateSnippetInput
     {
+        public string Name { get; set; }
         public virtual string Description { get; set; }
         public virtual string Code { get; set; }
-        public CategoryDto Category { get; set; }
-        public TopicDto Topic { get; set; }
+        public Guid? CategoryId { get; set; }
+        public Guid? TopicId { get; set; }
     }
 }

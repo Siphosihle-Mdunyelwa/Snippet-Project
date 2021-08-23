@@ -37,7 +37,7 @@ export class EditCategoryComponent extends AppComponentBase implements OnInit {
   show(cat: CategoryDto) {
     this.input = cat;
     this.editCategoryForm.get('name').setValue(cat.categoryType);
-    this.modalService.open(this.editCategory, { size: 'sm' })
+    this.modalService.open(this.editCategory, { size: 'sm', centered: true })
   }
 
   close() {

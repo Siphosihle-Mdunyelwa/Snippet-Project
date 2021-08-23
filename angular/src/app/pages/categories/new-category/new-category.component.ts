@@ -35,7 +35,7 @@ export class NewCategoryComponent extends AppComponentBase implements OnInit {
   }
 
   show() {
-    this.modalService.open(this.newCategory, { size: 'sm' })
+    this.modalService.open(this.newCategory, { size: 'sm', centered: true })
   }
 
   close() {

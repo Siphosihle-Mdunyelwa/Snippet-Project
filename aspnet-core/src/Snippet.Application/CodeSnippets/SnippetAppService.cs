@@ -32,28 +32,10 @@ namespace Snippet.CodeSnippets
 
         public async Task<CreateSnippetInput> CreateAsync(CreateSnippetInput input)
         {
-            var user = AbpSession.UserId;
-            var topic = await _topicRepository
-                .GetAll()
-                .Include(x => x.Category)
-                .FirstOrDefaultAsync();
-            var category = await _categoryRepository.FirstOrDefaultAsync(input.Category.Id);
-
-            CurrentUnitOfWork.SaveChangesAsync();
-
-            if (topic == null || category == null)
-            {
-                throw new Exception("No Topic and category was found");
-            }
-            var codeSnip = new CodeSnippet
-            {
-                Description = input.Description,
-                Code = input.Code,
-                TopicId = topic.Id,
-                CategoryId = category.Id,
-                UserId = user
-            };
-            return ObjectMapper.Map<CreateSnippetInput>(await _snippetManager.CreateAsync(ObjectMapper.Map<CodeSnippet>(codeSnip)));
+            var userId = AbpSession.UserId; // current loggedIn User
+            var newSnippet = ObjectMapper.Map<CodeSnippet>(input); // map CreateSnnipetInput to CodeSnippet
+            newSnippet.UserId = userId;
+            return ObjectMapper.Map<CreateSnippetInput>(await _snippetManager.CreateAsync(newSnippet));
         }
 
         public async Task<ListResultDto<SnippetListDto>> GetAllAsync()

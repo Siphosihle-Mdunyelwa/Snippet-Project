@@ -16,13 +16,12 @@ namespace Snippet.CodeSnippets
     public class CodeSnippet : FullAuditedEntity<Guid>
     {
         [Required]
+        public string Name { get; set; }
+        [Required]
         public virtual string Description { get; set; }
 
         [Required]
         public virtual string Code { get; set; }
-
-        [Required]
-        public virtual string Language { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; }
@@ -36,14 +35,13 @@ namespace Snippet.CodeSnippets
         public Category Category { get; set; }
         public Guid? CategoryId { get; set; }
 
-        public static CodeSnippet CreateAsync(Guid snippetId, string description, string code, string language)
+        public static CodeSnippet CreateAsync(Guid snippetId, string description, string code)
         {
             var snippet = new CodeSnippet
             {
                 Id = snippetId,
                 Description = description,
                 Code = code,
-                Language = language
             };
 
             return snippet;

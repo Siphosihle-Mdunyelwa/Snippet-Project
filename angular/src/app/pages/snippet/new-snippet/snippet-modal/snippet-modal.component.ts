@@ -1,6 +1,5 @@
 import { AppComponentBase } from '@shared/app-component-base';
-import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, Injector, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,35 +7,29 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './snippet-modal.component.html',
   styleUrls: ['./snippet-modal.component.scss']
 })
-export class SnippetModalComponent extends AppComponentBase implements OnInit {
+export class SnippetModalComponent extends AppComponentBase {
 
   @ViewChild('newSnippet') newSnippet: ElementRef;
-  newSnippetForm: FormGroup;
+  @Output() snippetAdded = new EventEmitter<string>();
+  code: string;
 
   constructor(
     injector: Injector,
-    private modalService: NgbModal,
-    private fb: FormBuilder) {
+    private modalService: NgbModal) {
     super(injector);
   }
 
-  ngOnInit() {
-    this.initializeForm();
-  }
-
-  initializeForm() {
-    this.newSnippetForm = this.fb.group({
-      code: ['', Validators.required]
-    });
-
-  }
-
   show() {
-    this.modalService.open(this.newSnippet)
+    this.modalService.open(this.newSnippet, { backdrop: false })
+  }
+
+  close() {
+    this.modalService.dismissAll();
   }
 
   save() {
-    this.notify.success('Created Successfully');
+    this.snippetAdded.emit(this.code);
+    this.close();
   }
 
 }
